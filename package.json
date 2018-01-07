@@ -15,5 +15,7 @@
   "bugs": {
     "url": "https://github.com/jimkhm/basic_exercise1/issues"
   },
-  "homepage": "https://github.com/jimkhm/basic_exercise1#readme"
+  "homepage": "https://github.com/jimkhm/basic_exercise1#readme",
+  "dependencies": {
+  }
 }
