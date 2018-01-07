@@ -17,5 +17,6 @@
   },
   "homepage": "https://github.com/jimkhm/basic_exercise1#readme",
   "dependencies": {
+    "express": "^4.16.2"
   }
 }
