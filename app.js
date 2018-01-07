@@ -1,5 +1,6 @@
 var express = require('express');
 var session = require('express-session');
+var MySQLStore= require('express-mysql-session')(session);
 var bodyParser = require('body-parser');
 var app = express();
 var mysql = require('mysql');
@@ -16,6 +17,13 @@ app.use(session({
   secret: 'asdfasdf212323423',
   resave: false,
   saveUninitialized: true,
+  store: new MySQLStore({
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: '1121ujung',
+    database: 'checkList'
+  })
 }));
 
 app.set('view engine', 'pug');
