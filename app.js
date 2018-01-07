@@ -7,6 +7,9 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.set('view engine', 'pug');
 app.set('views', './views');
 
+app.post('/login', function(req, res) {
+  res.send(req.body);
+});
 
 app.get('/login', function(req, res) {
   res.render('login');
