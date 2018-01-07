@@ -1,4 +1,5 @@
 var express = require('express');
+var session = require('express-session');
 var bodyParser = require('body-parser');
 var app = express();
 var mysql = require('mysql');
@@ -11,6 +12,11 @@ var conn = mysql.createConnection({
 conn.connect();
 
 app.use(bodyParser.urlencoded({extended: false}))
+app.use(session({
+  secret: 'asdfasdf212323423',
+  resave: false,
+  saveUninitialized: true,
+}));
 
 app.set('view engine', 'pug');
 app.set('views', './views');
