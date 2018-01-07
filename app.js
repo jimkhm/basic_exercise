@@ -29,6 +29,12 @@ app.use(session({
 app.set('view engine', 'pug');
 app.set('views', './views');
 
+app.get('/checklist', function(req, res) {
+  res.send(`
+      <h1>welcome ${req.session.userid}</h1>
+    `)
+});
+
 app.post('/login', function(req, res) {
   console.log('/login');
   console.log(req.body);
@@ -46,13 +52,19 @@ app.post('/login', function(req, res) {
     } else if(password !== results[0].password) {
       res.status(200).send('틀린 비밀번호입니다. 확인해 주세요');
     } else {
-      res.send("로그인 성공");
+      req.session.userid = results[0].id;
+      console.log(results[0].id);
+      console.log(req.session.userid);
+      req.session.save(function() {
+        res.redirect('/checklist');
+      })
+
+      //res.redirect("/welcome");
     }
   });
 });
 
 app.get('/login', function(req, res) {
-
   res.render('login');
 });
 
