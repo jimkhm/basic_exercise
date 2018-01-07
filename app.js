@@ -30,20 +30,15 @@ app.post('/login', function(req, res) {
     } else if(results.length <= 0){
       res.status(200).send('등록되지 않은 이메일입니다');
     } else if(password !== results[0].password) {
-      console.log(password);
-      console.log(results);
-      console.log(results[0].password);
       res.status(200).send('틀린 비밀번호입니다. 확인해 주세요');
     } else {
       res.send("로그인 성공");
     }
   });
-
-
-  //res.send(req.body);
 });
 
 app.get('/login', function(req, res) {
+
   res.render('login');
 });
 
