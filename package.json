@@ -1,0 +1,19 @@
+{
+  "name": "basic_exercise1",
+  "version": "1.0.0",
+  "description": "basics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimkhm/basic_exercise1.git"
+  },
+  "author": "Jim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jimkhm/basic_exercise1/issues"
+  },
+  "homepage": "https://github.com/jimkhm/basic_exercise1#readme"
+}
