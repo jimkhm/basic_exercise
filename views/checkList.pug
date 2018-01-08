@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title To Do List
+    link(rel="stylesheet" href="./stylesheet/style.css")
+  body
+    div(id="myDIV" class="header")
+      h2(style="margin") To Do List
+      input(type="text" id="myInput" placeholder="title...")
+      span(onclick="newElement()" class="addBtn") ADD
+
+    ul(id=myUL)
+      li Hit the gym
+      li(class="checked") paybills
+      li Meet George
+      li Buy eggs
+      li Read a book
+      li Organize office
+
+  script(type="text/javascript" src="./javascripts/toDoList.js")

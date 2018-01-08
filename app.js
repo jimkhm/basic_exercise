@@ -1,4 +1,5 @@
 var express = require('express');
+var path= require('path');
 var session = require('express-session');
 var MySQLStore= require('express-mysql-session')(session);
 var bodyParser = require('body-parser');
@@ -12,7 +13,8 @@ var conn = mysql.createConnection({
 });
 conn.connect();
 
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({
   secret: 'asdfasdf212323423',
   resave: false,
@@ -30,9 +32,11 @@ app.set('view engine', 'pug');
 app.set('views', './views');
 
 app.get('/checklist', function(req, res) {
-  res.send(`
-      <h1>welcome ${req.session.userid}</h1>
-    `)
+
+  res.render('checkList');
+  // res.send(`
+  //     <h1>welcome ${req.session.userid}</h1>
+  //   `)
 });
 
 app.post('/login', function(req, res) {
