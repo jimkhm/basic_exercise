@@ -6,25 +6,25 @@ var bodyParser = require('body-parser');
 var app = express();
 var mysql = require('mysql');
 var conn = mysql.createConnection({
-  host:'localhost',
-  user:'root',
-  password:'1121ujung',
-  database:'checkList'
+  host: process.env.DB_HOST,
+  user:process.env.DB_USER,
+  password:process.env.DB_PASSWORD,
+  database:process.env.DB_DATABASE
 });
 conn.connect();
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({
-  secret: 'asdfasdf212323423',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   store: new MySQLStore({
-    host: 'localhost',
+    host: process.env.DB_HOST,
     port: 3306,
-    user: 'root',
-    password: '1121ujung',
-    database: 'checkList'
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
   })
 }));
 
@@ -62,7 +62,6 @@ app.post('/login', function(req, res) {
       req.session.save(function() {
         res.redirect('/checklist');
       })
-
       //res.redirect("/welcome");
     }
   });
@@ -108,6 +107,6 @@ app.get('/', function(req, res) {
   res.render('homepage');
 });
 
-app.listen(3000, function() {
+app.listen(process.env.PORT, function() {
   console.log("Conntected 3000 port!");
 });

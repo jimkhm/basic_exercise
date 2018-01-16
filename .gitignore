@@ -1,4 +1,6 @@
 npm-debug.log*
 node_modules
+remote-credential.sh
+local-credential.sh
 .idea/
 .DS_Store
