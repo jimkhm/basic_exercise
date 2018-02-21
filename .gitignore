@@ -2,5 +2,6 @@ npm-debug.log*
 node_modules
 remote-credential.sh
 local-credential.sh
+ecosystem.config.js
 .idea/
 .DS_Store
