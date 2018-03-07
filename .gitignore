@@ -5,3 +5,4 @@ local-credential.sh
 ecosystem.config.js
 .idea/
 .DS_Store
+*.bak
